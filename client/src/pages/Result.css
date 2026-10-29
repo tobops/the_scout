@@ -1,0 +1,77 @@
+.result {
+  padding: 48px 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.banner {
+  padding: 48px 56px;
+  border-radius: 24px;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.banner-win { background: var(--green); }
+.banner-stumped { background: var(--ink); gap: 48px; }
+
+.banner-icon {
+  width: 96px;
+  height: 96px;
+  flex-shrink: 0;
+  border-radius: 24px;
+  background: var(--white);
+  color: var(--green);
+  display: grid;
+  place-items: center;
+}
+
+.banner-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.banner-title { font-size: 80px; }
+.banner-subtitle { font-size: 20px; color: #e6f4eb; }
+.banner-stumped .banner-subtitle { color: #c9d6cd; }
+.banner .btn { flex-shrink: 0; }
+
+.reveal-form {
+  width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.reveal-form .label { color: #e6f4eb; }
+.reveal-row { display: flex; gap: 12px; }
+.btn-save { padding: 0 28px; border-radius: 8px; background: #2fa866; color: var(--ink); }
+.reveal-saved { width: 480px; font-size: 20px; }
+
+.answers-card {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.answers-header { display: flex; justify-content: space-between; align-items: center; }
+.answers-title { font-size: 40px; }
+
+.turn-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 24px;
+}
+
+.result-message {
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
