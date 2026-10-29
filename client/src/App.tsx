@@ -1,26 +1,21 @@
-import { useEffect, useState } from 'react'
-import axios from 'axios'
-
-type Health = { ok: boolean; db: boolean }
+import { Route, Routes } from 'react-router'
+import Header from './components/Header'
+import Home from './pages/Home'
+import Game from './pages/Game'
+import Result from './pages/Result'
+import NotFound from './pages/NotFound'
 
 function App() {
-  const [health, setHealth] = useState<Health | null>(null)
-  const [error, setError] = useState('')
-
-  useEffect(() => {
-    axios
-      .get<Health>('/api/health')
-      .then((res) => setHealth(res.data))
-      .catch(() => setError('Could not reach the server. Is it running?'))
-  }, [])
-
-  if (error) return <p>{error}</p>
-  if (!health) return <p>Checking server...</p>
-
   return (
-    <p>
-      Server: {health.ok ? 'OK' : 'down'} | Database: {health.db ? 'connected' : 'not connected'}
-    </p>
+    <>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/game/:id" element={<Game />} />
+        <Route path="/game/:id/result" element={<Result />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </>
   )
 }
 
