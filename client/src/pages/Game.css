@@ -1,0 +1,155 @@
+.game {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+  padding: 48px;
+}
+
+.game-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.progress { display: flex; flex-direction: column; gap: 12px; }
+.progress-top { display: flex; justify-content: space-between; align-items: baseline; }
+.progress-label { font-size: 32px; }
+.progress-left { font-size: 14px; color: var(--muted); }
+.progress-bar { height: 12px; }
+
+.question-card,
+.thinking-card {
+  min-height: 360px;
+  padding: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+}
+
+.question-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--green);
+}
+
+.question-text,
+.thinking-title { font-size: 80px; }
+
+.thinking-card {
+  align-items: center;
+  border-radius: 24px;
+  background: var(--green);
+  color: var(--white);
+  text-align: center;
+}
+
+.thinking-card p { font-size: 18px; color: #e6f4eb; }
+
+.dots { display: flex; gap: 16px; }
+
+.dots span {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--white);
+  animation: pulse 1s ease-in-out infinite;
+}
+
+.dots span:nth-child(2) { animation-delay: 0.15s; }
+.dots span:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dots span { animation: none; }
+}
+
+.answers {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.answer-btn {
+  height: 88px;
+  border: 2px solid #b7c7bc;
+  border-radius: 16px;
+  background: var(--white);
+  color: var(--ink);
+  font: 600 18px var(--font-body);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.answer-yes { border-color: var(--green); background: var(--green); color: var(--white); font-weight: 700; }
+.answer-no { border-color: var(--ink); background: var(--ink); color: var(--white); font-weight: 700; }
+.answer-btn:hover { border-color: var(--ink); }
+
+.answer-btn:disabled {
+  border-color: var(--border);
+  background: #e9eee7;
+  color: #6b7c71;
+  cursor: not-allowed;
+}
+
+.history {
+  width: 400px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.history-title { font-size: 32px; }
+.history-empty { color: var(--muted); }
+
+.game-guess {
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+  padding-bottom: 96px;
+}
+
+.game-guess .progress,
+.guess-card { width: 960px; max-width: 100%; }
+
+.guess-card {
+  padding: 80px 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+}
+
+.guess-icon {
+  width: 96px;
+  height: 96px;
+  border-radius: 24px;
+  background: var(--green);
+  color: var(--white);
+  display: grid;
+  place-items: center;
+}
+
+.guess-intro { font-size: 22px; font-weight: 500; color: var(--muted); }
+.guess-name { font-size: 128px; line-height: 0.9; letter-spacing: 2px; color: var(--green); }
+.guess-actions { display: flex; gap: 16px; margin-top: 24px; }
+
+.game-message {
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
