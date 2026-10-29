@@ -16,7 +16,6 @@ const turnSchema = new Schema(
 
 const gameSchema = new Schema(
   {
-    nickname: { type: String, trim: true, maxlength: 30 },
     status: {
       type: String,
       enum: ['in_progress', 'scout_won', 'player_won'],

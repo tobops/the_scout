@@ -1,4 +1,4 @@
-import { useEffect, useState, type FormEvent } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 import { createGame, getStats, type Stats } from '../api'
 import Icon from '../components/Icon'
@@ -12,7 +12,6 @@ const STEPS = [
 
 export default function Home() {
   const navigate = useNavigate()
-  const [nickname, setNickname] = useState('')
   const [stats, setStats] = useState<Stats | null>(null)
   const [starting, setStarting] = useState(false)
   const [error, setError] = useState('')
@@ -23,12 +22,11 @@ export default function Home() {
       .catch(() => setStats(null))
   }, [])
 
-  async function handleStart(event: FormEvent) {
-    event.preventDefault()
+  async function handleStart() {
     setStarting(true)
     setError('')
     try {
-      const game = await createGame(nickname.trim())
+      const game = await createGame()
       navigate(`/game/${game._id}`)
     } catch {
       setError('Could not start a game. Is the server running?')
@@ -51,26 +49,13 @@ export default function Home() {
             <br />
             The Scout will name them in 20 questions.
           </h1>
-          <form className="start-form" onSubmit={handleStart}>
-            <label htmlFor="nickname" className="label">
-              Your nickname
-            </label>
-            <div className="start-row">
-              <input
-                id="nickname"
-                className="input"
-                placeholder="e.g. Tobias"
-                maxLength={30}
-                value={nickname}
-                onChange={(event) => setNickname(event.target.value)}
-              />
-              <button type="submit" className="btn btn-ink" disabled={starting}>
-                {starting ? 'Starting…' : 'Start'}
-                <Icon name="arrow" />
-              </button>
-            </div>
+          <div className="start">
+            <button type="button" className="btn btn-ink" disabled={starting} onClick={handleStart}>
+              {starting ? 'Starting…' : 'Start a game'}
+              <Icon name="arrow" />
+            </button>
             {error && <p className="error">{error}</p>}
-          </form>
+          </div>
         </div>
 
         <aside className="record">

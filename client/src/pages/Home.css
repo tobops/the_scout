@@ -17,15 +17,12 @@
 .hero-eyebrow { color: #cdebd8; }
 .hero-title { font-size: 96px; line-height: 0.95; }
 
-.start-form {
+.start {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 8px;
-  max-width: 560px;
 }
-
-.start-form .label { color: #e6f4eb; }
-.start-row { display: flex; gap: 16px; }
 
 .record {
   width: 320px;

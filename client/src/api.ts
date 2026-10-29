@@ -13,7 +13,6 @@ export type Turn = {
 
 export type Game = {
   _id: string
-  nickname?: string
   status: 'in_progress' | 'scout_won' | 'player_won'
   turns: Turn[]
   revealedPlayer?: string
@@ -21,8 +20,8 @@ export type Game = {
 
 export type Stats = { scoutWins: number; playerWins: number }
 
-export async function createGame(nickname: string) {
-  const res = await axios.post<Game>('/api/games', { nickname })
+export async function createGame() {
+  const res = await axios.post<Game>('/api/games')
   return res.data
 }
 

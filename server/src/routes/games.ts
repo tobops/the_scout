@@ -11,10 +11,9 @@ async function findGame(id: string) {
   return Game.findById(id)
 }
 
-gamesRouter.post('/', async (req, res) => {
+gamesRouter.post('/', async (_req, res) => {
   const firstMove = await nextMove([], false)
   const game = await Game.create({
-    nickname: req.body?.nickname,
     turns: [{ number: 1, ...firstMove }],
   })
   res.status(201).json(game)
