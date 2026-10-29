@@ -1,9 +1,8 @@
 import { Router } from 'express'
 import mongoose from 'mongoose'
-import { ANSWERS, Game } from '../models/Game'
+import { ANSWERS, Game, MAX_QUESTIONS } from '../models/Game'
 import { nextMove } from '../scout'
 
-const MAX_QUESTIONS = 20
 
 export const gamesRouter = Router()
 

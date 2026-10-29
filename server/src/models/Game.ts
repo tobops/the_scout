@@ -2,6 +2,8 @@ import { Schema, model } from 'mongoose'
 
 export const ANSWERS = ['yes', 'no', 'dont_know', 'probably', 'probably_not']
 
+export const MAX_QUESTIONS = 20
+
 const turnSchema = new Schema(
   {
     number: { type: Number, required: true },
