@@ -4,8 +4,6 @@ An Akinator-style football guessing game. Think of any footballer, and the Scout
 
 Built for Full Stack Decal, Project 2: APImagination.
 
-![Home page design](FIGMA%20DESIGN/home.png)
-
 ## Features
 
 - Answer the Scout's questions with Yes, No, Don't know, Probably or Probably not
